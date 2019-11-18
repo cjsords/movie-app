@@ -1,10 +1,9 @@
-<p>watchlist-page works!</p>
 <nav>
   <a routerLink="/list" class="button">Home</a>
   <a routerLink="/search" class="button">Search</a>
   <a routerLink="/watch" class="button">Watched</a>
 </nav>
-
+<h1>My Watch list</h1>
 <section *ngFor="let movie of watchList; index as i">
   <h2>{{ movie.title }}</h2>
   <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />

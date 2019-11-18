@@ -15,88 +15,8 @@ const releaseYear = `primary_release_year=`; //add release year
   providedIn: "root"
 })
 export class MovieService {
-  genreId = [
-    {
-      id: 28,
-      name: "Action"
-    },
-    {
-      id: 12,
-      name: "Adventure"
-    },
-    {
-      id: 16,
-      name: "Animation"
-    },
-    {
-      id: 35,
-      name: "Comedy"
-    },
-    {
-      id: 80,
-      name: "Crime"
-    },
-    {
-      id: 99,
-      name: "Documentary"
-    },
-    {
-      id: 18,
-      name: "Drama"
-    },
-    {
-      id: 10751,
-      name: "Family"
-    },
-    {
-      id: 14,
-      name: "Fantasy"
-    },
-    {
-      id: 36,
-      name: "History"
-    },
-    {
-      id: 27,
-      name: "Horror"
-    },
-    {
-      id: 10402,
-      name: "Music"
-    },
-    {
-      id: 9648,
-      name: "Mystery"
-    },
-    {
-      id: 10749,
-      name: "Romance"
-    },
-    {
-      id: 878,
-      name: "Science Fiction"
-    },
-    {
-      id: 10770,
-      name: "TV Movie"
-    },
-    {
-      id: 53,
-      name: "Thriller"
-    },
-    {
-      id: 10752,
-      name: "War"
-    },
-    {
-      id: 37,
-      name: "Western"
-    }
-  ];
-
   //created array for watchlist movies
   watchMovies = [];
-  // [{ title: "", image: "", rating: 0 }];
 
   constructor(private http: HttpClient) {}
 
@@ -111,12 +31,13 @@ export class MovieService {
     return this.watchMovies;
   }
 
-  //
+  //removes items from movie array "our use from watch page into array"
   setRemovedWatchList(movie) {
     this.watchMovies.splice(movie, 1);
     console.log(this.watchMovies);
   }
 
+  //gets API info from the web
   getMovie(): Observable<any> {
     return this.http.get(
       "http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc",
@@ -126,5 +47,12 @@ export class MovieService {
         }
       }
     );
+  }
+  getGenre(): Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/genre/movie/list", {
+      params: {
+        api_key: API_KEY
+      }
+    });
   }
 }

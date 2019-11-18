@@ -1,117 +1,33 @@
-<p>Search-page works!</p>
-
 <nav>
   <a routerLink="/list" class="button">Home</a>
   <a routerLink="/search" class="button">Search</a>
   <a routerLink="/watch" class="button">Watched</a>
 </nav>
 
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <section id="rating">
     <p>Rating</p>
-    <label><input type="checkbox" name="rating" value="1" />9+</label>
-    <label> <input type="checkbox" name="rating" value="2" />7-8</label>
-    <label> <input type="checkbox" name="rating" value="3" />5-6</label>
-    <label> <input type="checkbox" name="rating" value="4" />3-4</label>
-    <label> <input type="checkbox" name="rating" value="5" />0-2</label>
+    <label><input type="checkbox" name="rating" value=">9" />9+</label>
+    <label> <input type="checkbox" name="rating" value="7-8" />7-8</label>
+    <label> <input type="checkbox" name="rating" value="5-6" />5-6</label>
+    <label> <input type="checkbox" name="rating" value="3-4" />3-4</label>
+    <label> <input type="checkbox" name="rating" value="0-2" />0-2</label>
   </section>
 
   <section id="year">
     <p>Year</p>
-    <label> <input type="checkbox" name="year" value="2019" />2019</label>
-    <label> <input type="checkbox" name="year" value="2018" />2018</label>
+    <label>
+      <input type="radio" name="2019" value="2019" ngModel />2019</label
+    >
+    <label>
+      <input type="radio" name="2018" value="2018" ngModel />2018</label
+    >
   </section>
 
-  <section id="genre ">
-    <p>Genre</p>
-    <label>
-      <input type="checkbox" name="genre" value="28" id="28" />Action</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="12" id="12" />Adventure</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="16" id="16" />Animation</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="35" id="35" />Comedy</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="80" id="80" />Crime</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="99"
-        id="99"
-      />Documentary</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="10751"
-        id="10751"
-      />Family</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="14" id="14" />Fantasy</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="36" id="36" />History</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="27" id="27" />Horror</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="10402"
-        id="10402"
-      />Music</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="9648"
-        id="9648"
-      />Mystery</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="10749"
-        id="10749"
-      />Romance</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="878"
-        id="878"
-      />Science Fiction</label
-    >
-    <label>
-      <input
-        type="checkbox"
-        name="genre"
-        value="10770"
-        id="10770"
-      />TV Movie</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="53" id="53" />Thriller</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="10752" id="10752" />War</label
-    >
-    <label>
-      <input type="checkbox" name="genre" value="37" id="37" />Western</label
+  <section id="stuff">
+    <label *ngFor="let genre of genres; index as i" >
+      <input type="checkbox" name='{{genre.name}}' value="{{ genre.id }}" [(ngModel)]= "selectedGenres[genre.id]" />{{genre.name}}</label
     >
   </section>
+  <button>Find Movies</button>
 </form>
