@@ -1,0 +1,7 @@
+<p>movie-list works!</p>
+<section *ngFor="let movie of movies.results">
+  <h2>{{ movie.title }}</h2>
+  <img [src]="movie.poster_path" />
+  <h4>{{ movie.vote_average }}</h4>
+</section>
+<!-- <p>{{ movies.results[0].title }}</p> -->
