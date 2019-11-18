@@ -11,6 +11,11 @@ export class WatchlistPageComponent implements OnInit {
 
   constructor(private movieService: MovieService) {}
 
+  //removes movie from the array that sends Set into service
+  removeFromList(movie) {
+    this.movieService.setRemovedWatchList(movie);
+  }
+
   ngOnInit() {
     this.watchList = this.movieService.getWatchList();
   }

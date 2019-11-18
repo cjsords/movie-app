@@ -11,7 +11,7 @@
   <div class="info">
     <h4>Average rating: {{ movie.vote_average }}</h4>
     <label class="watchList"
-      ><button class="watchButton">
+      ><button class="watchButton" (click)="removeFromList(movie)">
         <i class="fas fa-film"></i></button
       >Remove from watch list</label
     >

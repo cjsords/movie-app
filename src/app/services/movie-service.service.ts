@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Movies } from "../interfaces/movies";
 
 const API_KEY = "e2187bb9ffcef2876cf21eb5b5c4ac40";
 const genreIndex = `https://api.themoviedb.org/3/genre/movie/list?api_key=e2187bb9ffcef2876cf21eb5b5c4ac40`;
@@ -96,7 +95,7 @@ export class MovieService {
   ];
 
   //created array for watchlist movies
-  watchMovies: Movies[] = [];
+  watchMovies = [];
   // [{ title: "", image: "", rating: 0 }];
 
   constructor(private http: HttpClient) {}
@@ -110,6 +109,12 @@ export class MovieService {
   //pulls from movies array in service "our use from array to watch page"
   getWatchList() {
     return this.watchMovies;
+  }
+
+  //
+  setRemovedWatchList(movie) {
+    this.watchMovies.splice(movie, 1);
+    console.log(this.watchMovies);
   }
 
   getMovie(): Observable<any> {
