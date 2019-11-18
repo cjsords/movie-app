@@ -8,9 +8,15 @@ import { MovieService } from "../services/movie-service.service";
 })
 export class MovieListComponent implements OnInit {
   movies: any[];
+  watchList: any[];
   // baseImageUrl: "https://image.tmdb.org/t/p/w500";
 
   constructor(private movieService: MovieService) {}
+
+  addToWatchList(movie: any) {
+    console.log(movie);
+    this.movieService.setToWatchList(movie);
+  }
 
   ngOnInit() {
     this.movieService.getMovie().subscribe(data => {
