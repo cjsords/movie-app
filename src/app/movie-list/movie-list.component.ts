@@ -26,7 +26,7 @@ export class MovieListComponent implements OnInit {
 
   //displays json info
   ngOnInit() {
-    this.movieService.getMovie().subscribe(data => {
+    this.movieService.getMovie('','','').subscribe(data => {
       this.movies = data;
       console.log(this.movies);
     });

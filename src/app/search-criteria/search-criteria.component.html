@@ -6,22 +6,28 @@
 
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <section id="rating">
-    <p>Rating</p>
-    <label><input type="checkbox" name="rating" value=">9" />9+</label>
-    <label> <input type="checkbox" name="rating" value="7-8" />7-8</label>
-    <label> <input type="checkbox" name="rating" value="5-6" />5-6</label>
-    <label> <input type="checkbox" name="rating" value="3-4" />3-4</label>
-    <label> <input type="checkbox" name="rating" value="0-2" />0-2</label>
+    <p>Language</p>
+    <label><input type="radio" name="english" value="en" ngModel/> English</label>
+    <label><input type="radio" name="english" value="!en" ngModel/> Foreign language</label>
+    
   </section>
 
   <section id="year">
     <p>Year</p>
     <label>
-      <input type="radio" name="2019" value="2019" ngModel />2019</label
+      <input type="radio" name="year" value="2019" ngModel />2019</label
     >
     <label>
-      <input type="radio" name="2018" value="2018" ngModel />2018</label
+      <input type="radio" name="year" value="2018" ngModel />2018</label
     >
+    <label>
+        <input type="radio" name="year" value="2017" ngModel />2017</label>
+      <label>
+          <input type="radio" name="year" value="2016" ngModel />2016</label
+        >
+        <label>
+            <input type="radio" name="year" value="2015" ngModel />2015</label
+          >
   </section>
 
   <section id="stuff">
