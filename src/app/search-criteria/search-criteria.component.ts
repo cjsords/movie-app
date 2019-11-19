@@ -15,6 +15,7 @@ export class SearchCriteriaComponent implements OnInit {
 
   constructor(private movieService: MovieService) {}
 
+  //on submit takes ID of movie genre into a single string and compareing to API call
   onSubmit(form) {
     let genreIDs = [];
 
@@ -24,6 +25,7 @@ export class SearchCriteriaComponent implements OnInit {
       }
     }
 
+    // API call
     this.movieService
       .getMovie(form.value.english, form.value.year, genreIDs.join())
       .subscribe(data => {
