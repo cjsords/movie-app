@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { MovieService } from "../services/movie-service.service";
 import { FormsModule, NgForm } from "@angular/forms";
 
@@ -11,11 +11,13 @@ export class SearchCriteriaComponent implements OnInit {
   movies: any[];
   genres: any[];
   selectedGenres: any = {};
+  languages: any;
 
   constructor(private movieService: MovieService) {}
 
   onSubmit(form) {
     let genreIDs = [];
+
     for (let key in this.selectedGenres) {
       if (this.selectedGenres[key] === true) {
         genreIDs.push(key);
@@ -23,14 +25,14 @@ export class SearchCriteriaComponent implements OnInit {
     }
 
     this.movieService
-      .getMovie(form.english, form.value.year, genreIDs.join())
+      .getMovie(form.value.english, form.value.year, genreIDs.join())
       .subscribe(data => {
         this.movies = data;
-
         console.log(genreIDs.join());
         console.log(this.movies);
       });
 
+    console.log(form.value.english);
     console.log("form submitted");
     console.log(form);
     console.log(form.value);
@@ -46,6 +48,10 @@ export class SearchCriteriaComponent implements OnInit {
     this.movieService.getGenre().subscribe(data => {
       this.genres = data.genres;
       console.log(this.genres);
+    });
+    this.movieService.getLanguages().subscribe(data => {
+      this.languages = data;
+      console.log(this.languages);
     });
   }
 }

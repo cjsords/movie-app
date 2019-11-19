@@ -1,39 +1,35 @@
-<nav>
-  <a routerLink="/list" class="button">Home</a>
-  <a routerLink="/search" class="button">Search</a>
-  <a routerLink="/watch" class="button">Watched</a>
-</nav>
-
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <section id="rating">
     <p>Language</p>
-    <label><input type="radio" name="english" value="en" ngModel/> English</label>
-    <label><input type="radio" name="english" value="!en" ngModel/> Foreign language</label>
-    
+    <label
+      ><input type="radio" name="english" value="en" ngModel /> English
+      Only</label
+    >
+    <label
+      ><input type="radio" name="english" value="ja" ngModel /> All
+      Languages</label
+    >
   </section>
 
   <section id="year">
     <p>Year</p>
-    <label>
-      <input type="radio" name="year" value="2019" ngModel />2019</label
-    >
-    <label>
-      <input type="radio" name="year" value="2018" ngModel />2018</label
-    >
-    <label>
-        <input type="radio" name="year" value="2017" ngModel />2017</label>
-      <label>
-          <input type="radio" name="year" value="2016" ngModel />2016</label
-        >
-        <label>
-            <input type="radio" name="year" value="2015" ngModel />2015</label
-          >
+    <label> <input type="radio" name="year" value="2019" ngModel />2019</label>
+    <label> <input type="radio" name="year" value="2018" ngModel />2018</label>
+    <label> <input type="radio" name="year" value="2017" ngModel />2017</label>
+    <label> <input type="radio" name="year" value="2016" ngModel />2016</label>
+    <label> <input type="radio" name="year" value="2015" ngModel />2015</label>
   </section>
 
   <section id="stuff">
-    <label *ngFor="let genre of genres; index as i" >
-      <input type="checkbox" name='{{genre.name}}' value="{{ genre.id }}" [(ngModel)]= "selectedGenres[genre.id]" />{{genre.name}}</label
+    <label *ngFor="let genre of genres; index as i">
+      <input
+        type="checkbox"
+        name="{{ genre.name }}"
+        value="{{ genre.id }}"
+        [(ngModel)]="selectedGenres[genre.id]"
+      />{{ genre.name }}</label
     >
   </section>
-  <button routerLink="/list">Find Movies</button>
+  <button>Find Movies</button>
 </form>
+<app-movie-list [movies]="movies"></app-movie-list>

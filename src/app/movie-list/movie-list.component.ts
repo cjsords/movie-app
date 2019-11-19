@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { MovieService } from "../services/movie-service.service";
 
 @Component({
@@ -8,8 +8,9 @@ import { MovieService } from "../services/movie-service.service";
 })
 export class MovieListComponent implements OnInit {
   summaryVisible: boolean = true;
-  movies: any[];
+  @Input() movies: any[];
   watchList: any[];
+  index: number;
   // baseImageUrl: "https://image.tmdb.org/t/p/w500";
 
   constructor(private movieService: MovieService) {}
@@ -18,6 +19,11 @@ export class MovieListComponent implements OnInit {
   addToWatchList(movie: any) {
     console.log(movie);
     this.movieService.setToWatchList(movie);
+  }
+
+  setIndex(i) {
+    this.index = i;
+    console.log(this.index);
   }
 
   toggleSummary() {

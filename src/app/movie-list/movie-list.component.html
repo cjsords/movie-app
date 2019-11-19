@@ -1,27 +1,32 @@
-<nav>
-  <a routerLink="/list" class="button">Home</a>
-  <a routerLink="/search" class="button">Search</a>
-  <a routerLink="/watch" class="button">Watched</a>
-</nav>
-<h1>Untitled movie app</h1>
 <script
   src="https://kit.fontawesome.com/8ebf573fa1.js"
   crossorigin="anonymous"
 ></script>
-<section class="movieSection" *ngFor="let movie of movies.results; index as i">
-  <h2>{{ movie.title }}</h2>
-  <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
-  <div class="info">
-    <h4>Average rating: {{ movie.vote_average }}</h4>
-    <button (click)="toggleSummary()">Summary</button>
-    <div [ngClass]="{ hidden: summaryVisible }" class="movie-summary">
+<h3>Popular Movies</h3>
+<main>
+  <section
+    class="movieSection grow"
+    *ngFor="let movie of movies.results; index as i"
+  >
+    <div class="image">
+      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
+    </div>
+    <div class="info">
+      <h3>{{ movie.title }}</h3>
+      <h4>Average rating: {{ movie.vote_average }}</h4>
+      <div class="info-btns">
+        <button class="summary-btn" (click)="setIndex(i)">
+          Summary
+        </button>
+        <label class="watchList">
+          <button class="watchButton" (click)="addToWatchList(movie)">
+            Add to Watchlist
+            <i class="fas fa-film"></i></button
+        ></label>
+      </div>
+    </div>
+    <div *ngIf="index === i">
       {{ movie.overview }}
     </div>
-    <label class="watchList"
-      ><button class="watchButton" (click)="addToWatchList(movie)">
-        <i class="fas fa-film"></i></button
-      >Add to watch list</label
-    >
-  </div>
-</section>
-<!-- <p>{{ movies.results[0].title }}</p> -->
+  </section>
+</main>

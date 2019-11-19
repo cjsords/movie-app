@@ -1,5 +1,11 @@
+body {
+  padding: 20px;
+}
+
 .watchButton {
   margin-right: 5px;
+  border: 1px solid black;
+  font-size: 10px;
 }
 
 .movieSection {
@@ -8,4 +14,90 @@
 
 .hidden {
   display: none;
+}
+
+img {
+  width: 240px;
+  margin: 5px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+a:visited {
+  text-decoration: none;
+  font-size: 15px;
+}
+
+button {
+  border-style: none;
+  background: none;
+}
+
+nav {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+h1,
+h4 {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 12px;
+}
+
+.movieSection {
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid grey;
+  width: 250px;
+  padding: 10px;
+  margin: 5px;
+  flex-wrap: nowrap;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.watchList {
+  font-size: 8px;
+}
+
+.movie-summary {
+  font-size: 10px;
+}
+
+.summary-btn {
+  border: 1px solid black;
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+.info-btns {
+  display: flex;
+  margin-top: 5px;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.025);
 }

@@ -62,4 +62,14 @@ export class MovieService {
       }
     });
   }
+  getLanguages(): Observable<any> {
+    return this.http.get(
+      "https://api.themoviedb.org/3/configuration/languages",
+      {
+        params: {
+          api_key: API_KEY
+        }
+      }
+    );
+  }
 }
