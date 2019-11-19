@@ -48,9 +48,5 @@ export class SearchCriteriaComponent implements OnInit {
       this.genres = data.genres;
       // console.log(this.genres);
     });
-    // this.movieService.getLanguages().subscribe(data => {
-    //   this.languages = data;
-    //   console.log(this.languages);
-    // });
   }
 }

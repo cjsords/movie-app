@@ -1,13 +1,28 @@
 <h3>My Watchlist</h3>
-<section *ngFor="let movie of watchList; index as i">
-  <h2>{{ movie.title }}</h2>
-  <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
-  <div class="info">
-    <h4>Average rating: {{ movie.vote_average }}</h4>
-    <label class="watchList"
-      ><button class="watchButton" (click)="removeFromList(movie)">
-        <i class="fas fa-film"></i></button
-      >Remove from watch list</label
-    >
-  </div>
-</section>
+<main>
+  <section
+    class="movieSection grow"
+    *ngFor="let movie of watchList; index as i"
+  >
+    <div class="image">
+      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
+    </div>
+    <div class="info">
+      <h3>{{ movie.title }}</h3>
+      <h4>Average rating: {{ movie.vote_average }}</h4>
+      <div class="info-btns">
+        <button class="summary-btn" (click)="setIndex(i)">
+          Summary
+        </button>
+        <label class="watchList">
+          <button class="watchButton" (click)="removeFromList(i)">
+            Remove from Watchlist
+            <i class="fas fa-film"></i></button
+        ></label>
+      </div>
+    </div>
+    <div class="movie-overview" *ngIf="index === i">
+      {{ movie.overview }}
+    </div>
+  </section>
+</main>

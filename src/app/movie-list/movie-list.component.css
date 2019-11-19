@@ -8,6 +8,10 @@ body {
   font-size: 10px;
 }
 
+.watchButton:hover {
+  cursor: pointer;
+}
+
 .movieSection {
   margin-top: 40px;
 }
@@ -63,7 +67,7 @@ h4 {
 .movieSection {
   display: flex;
   flex-direction: column;
-  border: 0.5px solid grey;
+  /* border: 0.5px solid grey; */
   width: 250px;
   padding: 10px;
   margin: 5px;
@@ -90,6 +94,10 @@ main {
   margin-right: 5px;
 }
 
+.summary-btn:hover {
+  cursor: pointer;
+}
+
 .info-btns {
   display: flex;
   margin-top: 5px;
@@ -100,4 +108,9 @@ main {
 }
 .grow:hover {
   transform: scale(1.025);
+}
+
+.movie-overview {
+  font-size: 10px;
+  margin-top: 10px;
 }
