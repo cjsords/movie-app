@@ -5,7 +5,7 @@ body {
 .watchButton {
   margin-right: 5px;
   border: 1px solid black;
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .watchButton:hover {
@@ -57,11 +57,11 @@ h4 {
 h3 {
   padding: 0;
   margin: 0;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 h4 {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .movieSection {
@@ -72,12 +72,13 @@ h4 {
   padding: 10px;
   margin: 5px;
   flex-wrap: nowrap;
+  margin: 0 auto;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .watchList {
@@ -85,12 +86,12 @@ main {
 }
 
 .movie-summary {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .summary-btn {
   border: 1px solid black;
-  font-size: 10px;
+  font-size: 14px;
   margin-right: 5px;
 }
 
@@ -101,6 +102,7 @@ main {
 .info-btns {
   display: flex;
   margin-top: 5px;
+  justify-content: space-between;
 }
 
 .grow {
@@ -111,6 +113,6 @@ main {
 }
 
 .movie-overview {
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 10px;
 }

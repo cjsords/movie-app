@@ -1,0 +1,24 @@
+form {
+  margin-bottom: 15px;
+  border: 1px solid black;
+  padding: 15px;
+}
+button {
+  margin-top: 15px;
+}
+p {
+  font-weight: bold;
+}
+label {
+  margin-right: 15px;
+}
+
+.genre-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#top-p {
+  padding-top: 0;
+  margin-top: 0;
+}

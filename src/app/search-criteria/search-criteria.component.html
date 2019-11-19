@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
   <section id="rating">
-    <p>Language</p>
+    <p id="top-p">Language</p>
     <label
       ><input type="radio" name="english" value="en" ngModel /> English
       Only</label
@@ -21,14 +21,19 @@
   </section>
 
   <section id="stuff">
-    <label *ngFor="let genre of genres; index as i">
-      <input
-        type="checkbox"
-        name="{{ genre.name }}"
-        value="{{ genre.id }}"
-        [(ngModel)]="selectedGenres[genre.id]"
-      />{{ genre.name }}</label
-    >
+    <p>Genre</p>
+    <div class="genre-options">
+      <div *ngFor="let genre of genres; index as i">
+        <label>
+          <input
+            type="checkbox"
+            name="{{ genre.name }}"
+            value="{{ genre.id }}"
+            [(ngModel)]="selectedGenres[genre.id]"
+          />{{ genre.name }}</label
+        >
+      </div>
+    </div>
   </section>
   <button>Find Movies</button>
 </form>
