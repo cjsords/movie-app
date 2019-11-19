@@ -35,5 +35,5 @@
       <input type="checkbox" name='{{genre.name}}' value="{{ genre.id }}" [(ngModel)]= "selectedGenres[genre.id]" />{{genre.name}}</label
     >
   </section>
-  <button>Find Movies</button>
+  <button routerLink="/list">Find Movies</button>
 </form>

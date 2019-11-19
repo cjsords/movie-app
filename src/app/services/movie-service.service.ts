@@ -20,10 +20,8 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
+  setFilteredArray() {}
 
-  setFilter(){
-
-  }
   //putting movies into array "our use is from movie list into array"
   setToWatchList(movie) {
     this.watchMovies.push(movie);
@@ -41,8 +39,8 @@ export class MovieService {
     console.log(this.watchMovies);
   }
 
-  //gets API info from the web
-  getMovie(language, releaseYear ,genreUrl): Observable<any> {
+  //gets Movie API info from the web
+  getMovie(language, releaseYear, genreUrl): Observable<any> {
     return this.http.get(
       "http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc",
       {
@@ -55,6 +53,8 @@ export class MovieService {
       }
     );
   }
+
+  //get genre API datd
   getGenre(): Observable<any> {
     return this.http.get("https://api.themoviedb.org/3/genre/movie/list", {
       params: {

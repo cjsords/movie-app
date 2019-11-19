@@ -14,38 +14,32 @@ export class SearchCriteriaComponent implements OnInit {
 
   constructor(private movieService: MovieService) {}
 
-  // parameter to recieve data from form
-  // doSearch(topic: string) {
-  //   this.movieService.getMovie(topic).subscribe(data => {
-  //     this.movies = data.movie_results;
-  //   });
-  // }
-
   onSubmit(form) {
-    let genreIDs =[];
-    for (let key in this.selectedGenres){
-      if (this.selectedGenres[key]=== true) {
-        genreIDs.push(key)}
+    let genreIDs = [];
+    for (let key in this.selectedGenres) {
+      if (this.selectedGenres[key] === true) {
+        genreIDs.push(key);
       }
-    
-      this.movieService.getMovie(form.english ,form.value.year, genreIDs.join()).subscribe(data => {
+    }
+
+    this.movieService
+      .getMovie(form.english, form.value.year, genreIDs.join())
+      .subscribe(data => {
         this.movies = data;
+
         console.log(genreIDs.join());
         console.log(this.movies);
       });
-
 
     console.log("form submitted");
     console.log(form);
     console.log(form.value);
     console.log(genreIDs);
     console.log(form.value.year);
-
-
   }
 
   ngOnInit() {
-    this.movieService.getMovie('','','').subscribe(data => {
+    this.movieService.getMovie("", "", "").subscribe(data => {
       this.movies = data;
       console.log(this.movies);
     });

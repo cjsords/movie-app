@@ -16,6 +16,7 @@ export class WatchlistPageComponent implements OnInit {
     this.movieService.setRemovedWatchList(movie);
   }
 
+  //pulls in
   ngOnInit() {
     this.watchList = this.movieService.getWatchList();
   }
