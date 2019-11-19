@@ -30,14 +30,11 @@ export class SearchCriteriaComponent implements OnInit {
       .getMovie(form.value.english, form.value.year, genreIDs.join())
       .subscribe(data => {
         this.movies = data;
-        console.log(genreIDs.join());
-        console.log(this.movies);
+        // console.log(genreIDs.join());
+        // console.log(this.movies);
       });
 
     console.log(form.value.english);
-    console.log("form submitted");
-    console.log(form);
-    console.log(form.value);
     console.log(genreIDs);
     console.log(form.value.year);
   }
@@ -49,11 +46,11 @@ export class SearchCriteriaComponent implements OnInit {
     });
     this.movieService.getGenre().subscribe(data => {
       this.genres = data.genres;
-      console.log(this.genres);
+      // console.log(this.genres);
     });
-    this.movieService.getLanguages().subscribe(data => {
-      this.languages = data;
-      console.log(this.languages);
-    });
+    // this.movieService.getLanguages().subscribe(data => {
+    //   this.languages = data;
+    //   console.log(this.languages);
+    // });
   }
 }
