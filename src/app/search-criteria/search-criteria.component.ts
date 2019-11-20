@@ -27,14 +27,16 @@ export class SearchCriteriaComponent implements OnInit {
 
     // API call
     this.movieService
-      .getMovie(form.value.english, form.value.year, genreIDs.join())
+      .getMovie(form.value.language, form.value.year, genreIDs.join())
       .subscribe(data => {
         this.movies = data;
         // console.log(genreIDs.join());
         // console.log(this.movies);
       });
 
-    console.log(form.value.english);
+    console.log(this.movies);
+    console.log("test");
+    console.log(form.value.language);
     console.log(genreIDs);
     console.log(form.value.year);
   }
@@ -48,5 +50,8 @@ export class SearchCriteriaComponent implements OnInit {
       this.genres = data.genres;
       // console.log(this.genres);
     });
+    // this.movieService.getLanguages().subscribe(data => {
+    //   this.languages = data.languages;
+    // });
   }
 }

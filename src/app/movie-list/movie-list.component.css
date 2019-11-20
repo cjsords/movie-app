@@ -112,7 +112,15 @@ main {
   transform: scale(1.025);
 }
 
-.movie-overview {
+.movieOverview {
   font-size: 12px;
   margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.section-title {
+  margin-left: 10px;
 }

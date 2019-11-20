@@ -1,4 +1,4 @@
-<h3>My Watchlist</h3>
+<h3 class="section-title">My Watchlist</h3>
 <main>
   <section
     class="movieSection grow"
@@ -11,7 +11,11 @@
       <h3>{{ movie.title }}</h3>
       <h4>Average rating: {{ movie.vote_average }}</h4>
       <div class="info-btns">
-        <button class="summary-btn" (click)="setIndex(i)">
+        <button
+          class="summary-btn"
+          (click)="setIndex(i)"
+          (click)="toggleSummary(i)"
+        >
           Summary
         </button>
         <label class="watchList">
@@ -21,7 +25,11 @@
         ></label>
       </div>
     </div>
-    <div class="movie-overview" *ngIf="index === i">
+    <div
+      class="movieOverview"
+      [ngClass]="{ hidden: summaryVisible }"
+      *ngIf="index === i"
+    >
       {{ movie.overview }}
     </div>
   </section>

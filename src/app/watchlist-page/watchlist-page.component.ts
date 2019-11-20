@@ -7,13 +7,19 @@ import { MovieService } from "../services/movie-service.service";
   styleUrls: ["./watchlist-page.component.css"]
 })
 export class WatchlistPageComponent implements OnInit {
+  summaryVisible: boolean = true;
   watchList: any;
+  index: any;
 
   constructor(private movieService: MovieService) {}
 
   //removes movie from the array that sends Set into service
   removeFromList(movie) {
     this.movieService.setRemovedWatchList(movie);
+  }
+
+  toggleSummary() {
+    this.summaryVisible = !this.summaryVisible;
   }
 
   setIndex(i) {

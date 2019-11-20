@@ -2,22 +2,42 @@
   <section id="rating">
     <p id="top-p">Language</p>
     <label
-      ><input type="radio" name="english" value="en" ngModel /> English
-      Only</label
+      ><input type="radio" name="language" value="en" ngModel /> English</label
     >
     <label
-      ><input type="radio" name="english" value="" ngModel /> All
-      Languages</label
+      ><input type="radio" name="language" value="es" ngModel /> Spanish</label
+    >
+    <label
+      ><input type="radio" name="language" value="cn" ngModel />
+      Cantonese</label
+    >
+    <label
+      ><input type="radio" name="language" value="zh" ngModel /> Mandarin</label
+    >
+    <label
+      ><input type="radio" name="language" value="fr" ngModel /> French</label
+    >
+    <label
+      ><input type="radio" name="language" value="tl" ngModel /> Tagalog</label
+    >
+    <label
+      ><input type="radio" name="language" value="vi" ngModel />
+      Vietnamese</label
+    >
+    <label
+      ><input type="radio" name="language" value="ko" ngModel /> Korean</label
+    >
+    <label
+      ><input type="radio" name="language" value="de" ngModel />German</label
+    >
+    <label
+      ><input type="radio" name="language" value="ar" ngModel /> Arabic</label
     >
   </section>
 
   <section id="year">
     <p>Year</p>
-    <label> <input type="radio" name="year" value="2019" ngModel />2019</label>
-    <label> <input type="radio" name="year" value="2018" ngModel />2018</label>
-    <label> <input type="radio" name="year" value="2017" ngModel />2017</label>
-    <label> <input type="radio" name="year" value="2016" ngModel />2016</label>
-    <label> <input type="radio" name="year" value="2015" ngModel />2015</label>
+    <input type="number" name="year" ngModel pattern="(?=.*19|20)[0-9]{4}" />
   </section>
 
   <section id="stuff">
@@ -35,6 +55,6 @@
       </div>
     </div>
   </section>
-  <button>Find Movies</button>
+  <button [disabled]="form.invalid">Find Movies</button>
 </form>
 <app-movie-list [movies]="movies"></app-movie-list>
