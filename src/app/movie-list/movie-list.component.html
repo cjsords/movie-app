@@ -2,7 +2,7 @@
 <main>
   <section
     class="movieSection grow"
-    *ngFor="let movie of movies.results; index as i"
+    *ngFor="let movie of movies; index as i"
   >
     <div class="image">
       <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" />
@@ -14,15 +14,33 @@
         <button
           class="summary-btn"
           (click)="setIndex(i)"
-          (click)="toggleSummary(i)"
+          (click)="toggleSummary()"
         >
           Summary
         </button>
         <label class="watchList">
-          <button class="watchButton" (click)="addToWatchList(movie)">
-            Add to Watchlist
-            <i class="far fa-plus-square"></i></button
-        ></label>
+        
+        
+          <button
+            (click)="addToWatchList(movie)"
+            [ngClass]="{ addStuff: movie.added }"
+            class="watchButton"
+          >
+            <span class="b"
+              >Add to Watchlist <i class="far fa-plus-square"></i
+            ></span>
+            <span class="a"
+              >Remove Movie <i class="far fa-minus-square"></i
+            ></span>
+          </button>
+
+
+
+
+
+
+
+        </label>
       </div>
     </div>
     <div

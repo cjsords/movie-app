@@ -34,7 +34,7 @@ export class MovieService {
   }
 
   //removes items from movie array "our use from watch page into array"
-  setRemovedWatchList(movie) {
+  setRemovedWatchList(movie:number) {
     this.watchMovies.splice(movie, 1);
     console.log(this.watchMovies);
   }

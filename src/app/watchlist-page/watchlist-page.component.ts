@@ -14,13 +14,14 @@ export class WatchlistPageComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   //removes movie from the array that sends Set into service
-  removeFromList(movie) {
+  removeFromList(movie:number) {
     this.movieService.setRemovedWatchList(movie);
   }
 
   toggleSummary() {
     this.summaryVisible = !this.summaryVisible;
   }
+
 
   setIndex(i) {
     this.index = i;

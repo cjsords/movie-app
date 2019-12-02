@@ -124,3 +124,16 @@ main {
 .section-title {
   margin-left: 10px;
 }
+
+
+button .a {
+  display: none;
+}
+
+button.addStuff .a{
+  display: initial
+}
+
+button.addStuff .b{
+  display: none;
+}
